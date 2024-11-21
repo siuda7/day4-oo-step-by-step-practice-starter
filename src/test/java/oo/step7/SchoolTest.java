@@ -24,4 +24,22 @@ public class SchoolTest {
     private String systemOut() {
         return outContent.toString();
     }
+
+    @Test
+    public void should_print_message_when_school_start() {
+
+            Klass klass = new Klass(2);
+            Student bob = new Student(1, "Bob", 18);
+            bob.join(klass);
+            klass.attach(bob);
+            Teacher jerry = new Teacher(1, "Jerry", 21);
+            jerry.assignTo(klass);
+            klass.attach(jerry);
+
+            School school = new School(List.of(klass));
+            school.startSchool();
+
+            assertThat(systemOut()).contains("My name is Bob. I am 18 years old. I am a student. I am in class 2.My name is Jerry. I am 21 years old. I am a teacher. I teach Class 2.");
+
+    }
 }
