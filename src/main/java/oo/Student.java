@@ -25,16 +25,16 @@ public class Student extends Person{
         super(id, name, age, job);
     }
 
-    private String isLeaderMsg() {
+    private String getClassStatusMsg() {
         if (klass.isLeader(this)) {
             return String.format("I am the leader of class %s.", klass.getNumber());
         }
-        return "";
+        return String.format("I am in class %s.", klass.getNumber());
     }
 
     @Override
     public String introduce() {
-        return String.format("My name is %s. I am %d years old. I am a %s. I am in class %d. %s", name, age, job, klass.getNumber(), isLeaderMsg());
+        return String.format("My name is %s. I am %d years old. I am a %s. %s", name, age, job, getClassStatusMsg());
     }
 
     public Klass getKlass() {
