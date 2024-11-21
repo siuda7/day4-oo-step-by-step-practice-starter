@@ -15,13 +15,13 @@ public class PersonTest {
         assertThat(introduce).isEqualTo("My name is Tom. I am 18 years old.");
     }
 
-//    @Test
-//    public void should_return_message_with_name_and_age_when_introduce_given_another_person() {
-//        Person jim = new Person(2, "Jim", 19);
-//        String introduce = jim.introduce();
-//
-//        assertThat(introduce).isEqualTo("My name is Jim. I am 19 years old.");
-//    }
+    @Test
+    public void should_return_message_with_name_and_age_when_introduce_given_another_person() {
+        Person jim = new Person(2, "Jim", 19);
+        String introduce = jim.introduce();
+
+        assertThat(introduce).isEqualTo("My name is Jim. I am 19 years old.");
+    }
 //
 //    @Test
 //    public void should_return_true_when_equals_given_two_people_with_same_id() {
