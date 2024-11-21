@@ -14,15 +14,15 @@ public class StudentTest {
 
         assertThat(introduce).isEqualTo("My name is Tom. I am 18 years old. I am a student.");
     }
-//
-//    @Test
-//    public void should_return_message_with_name_and_age_when_introduce_given_another_student() {
-//        Student jim = new Student(2, "Jim", 19);
-//        String introduce = jim.introduce();
-//
-//        assertThat(introduce).isEqualTo("My name is Jim. I am 19 years old. I am a student.");
-//    }
-//
+
+    @Test
+    public void should_return_message_with_name_and_age_when_introduce_given_another_student() {
+        Student jim = new Student(2, "Jim", 19);
+        String introduce = jim.introduce();
+
+        assertThat(introduce).isEqualTo("My name is Jim. I am 19 years old. I am a student.");
+    }
+
 //    @Test
 //    public void should_return_true_when_equals_given_two_students_with_same_id() {
 //        Student student1 = new Student(1, "Tom", 18);
