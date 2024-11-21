@@ -10,6 +10,15 @@ public class Person {
 
     protected Integer age;
 
+    protected String job;
+
+    public Person(Integer id, String name, Integer age, String job) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.job = job;
+    }
+
     public Person(Integer id, String name, Integer age) {
         this.id = id;
         this.name = name;
@@ -17,7 +26,7 @@ public class Person {
     }
 
     public String introduce() {
-        return String.format("My name is %s. I am %d years old.", name, age);
+        return String.format("My name is %s. I am %d years old. I am a %s.", name, age, job);
     }
 
     @Override

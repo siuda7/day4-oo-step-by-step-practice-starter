@@ -2,12 +2,9 @@ package oo;
 
 public class Teacher extends Person{
 
-    public Teacher(Integer id, String name, Integer age) {
-        super(id, name, age);
-    }
+    private static final String JOB = "teacher";
 
-    @Override
-    public String introduce() {
-        return String.format("My name is %s. I am %d years old. I am a teacher.", name, age);
+    public Teacher(Integer id, String name, Integer age) {
+        super(id, name, age, JOB);
     }
 }
