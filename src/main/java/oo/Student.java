@@ -30,4 +30,8 @@ public class Student extends Person{
         return String.format("My name is %s. I am %d years old. I am a %s. I am in class %d.", name, age, job, klass.getNumber());
     }
 
+    public Klass getKlass() {
+        return klass;
+    }
+
 }
