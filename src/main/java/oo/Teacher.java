@@ -37,4 +37,10 @@ public class Teacher extends Person{
     public boolean isTeaching(Student student) {
         return klasses.contains(student.getKlass());
     }
+
+    @Override
+    public void sayWhenLeaderAssigned(Integer classNumber, String leaderName) {
+        String leaderMsg =  String.format("I am %s, teacher of Class %d. I know %s become Leader.", name, classNumber, leaderName);
+        System.out.println(leaderMsg);
+    }
 }

@@ -41,4 +41,9 @@ public class Student extends Person{
         return klass;
     }
 
+    @Override
+    public void sayWhenLeaderAssigned(Integer classNumber, String leaderName) {
+        String leaderMsg =  String.format("I am %s, student of Class %d. I know %s become Leader.", name, classNumber, leaderName);
+        System.out.print(leaderMsg);
+    }
 }

@@ -34,6 +34,12 @@ public class Person {
         return Objects.hash(id);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void sayWhenLeaderAssigned(Integer classNumber, String leaderName) {};
+
     @Override
     public boolean equals(Object anotherPerson) {
         if (anotherPerson == null) {
