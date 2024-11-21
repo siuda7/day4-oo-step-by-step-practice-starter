@@ -15,6 +15,9 @@ public class Student extends Person{
     }
 
     public boolean isIn(Klass klass) {
+        if (this.klass == null) {
+            return false;
+        }
         return this.klass.equals(klass);
     }
 
@@ -24,7 +27,7 @@ public class Student extends Person{
 
     @Override
     public String introduce() {
-        return String.format("My name is %s. I am %d years old. I am a %s. I am in class %d", name, age, job, klass.getNumber());
+        return String.format("My name is %s. I am %d years old. I am a %s. I am in class %d.", name, age, job, klass.getNumber());
     }
 
 }
