@@ -49,6 +49,11 @@ public class Klass {
         return Objects.equals(number, klass.number);
     }
 
+    public void allMemberIntroduce() {
+        members.stream()
+                .forEach(member -> System.out.print(member.introduce()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(number);
