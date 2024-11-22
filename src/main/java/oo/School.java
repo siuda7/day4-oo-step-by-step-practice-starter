@@ -2,17 +2,20 @@ package oo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class School {
 
-    private List<Klass> klasses = new ArrayList<>();
+    private List<Person> schoolMembers = new ArrayList<>();
 
     public void startSchool() {
-        klasses.stream()
-                .forEach(klass -> klass.allMemberIntroduce());
+        String schoolMemberIntroduceMsg = schoolMembers.stream()
+                .map(member -> member.introduce())
+                .collect(Collectors.joining(" "));
+        System.out.print(schoolMemberIntroduceMsg);
     }
 
-    public School(List<Klass> klasses) {
-        this.klasses = klasses;
+    public School(List<Person> schoolMembers) {
+        this.schoolMembers = schoolMembers;
     }
 }

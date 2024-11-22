@@ -26,20 +26,51 @@ public class SchoolTest {
     }
 
     @Test
-    public void should_print_message_when_school_start() {
+    public void should_print_message_given_1_student_and_1_teacher_when_start_school() {
 
-            Klass klass = new Klass(2);
             Student bob = new Student(1, "Bob", 18);
-            bob.join(klass);
-            klass.attach(bob);
             Teacher jerry = new Teacher(1, "Jerry", 21);
-            jerry.assignTo(klass);
-            klass.attach(jerry);
 
-            School school = new School(List.of(klass));
+            School school = new School(List.of(bob, jerry));
             school.startSchool();
 
-            assertThat(systemOut()).contains("My name is Bob. I am 18 years old. I am a student. I am in class 2.My name is Jerry. I am 21 years old. I am a teacher. I teach Class 2.");
+            assertThat(systemOut()).contains("My name is Bob. I am 18 years old. I am a student. My name is Jerry. I am 21 years old. I am a teacher.");
+
+    }
+
+    @Test
+    public void should_print_message_given_2_student_and_0_teacher_when_start_school() {
+
+        Student bob = new Student(1, "Bob", 18);
+        Student jerry = new Student(1, "Jerry", 21);
+
+        School school = new School(List.of(bob, jerry));
+        school.startSchool();
+
+        assertThat(systemOut()).contains("My name is Bob. I am 18 years old. I am a student. My name is Jerry. I am 21 years old. I am a student.");
+
+    }
+
+    @Test
+    public void should_print_message_given_2_teacher_and_0_student_when_start_school() {
+
+        Teacher bob = new Teacher(1, "Bob", 18);
+        Teacher jerry = new Teacher(1, "Jerry", 21);
+
+        School school = new School(List.of(bob, jerry));
+        school.startSchool();
+
+        assertThat(systemOut()).contains("My name is Bob. I am 18 years old. I am a teacher. My name is Jerry. I am 21 years old. I am a teacher.");
+
+    }
+
+    @Test
+    public void should_print_message_given_0_teacher_and_0_student_when_start_school() {
+
+        School school = new School(List.of());
+        school.startSchool();
+
+        assertThat(systemOut()).contains("");
 
     }
 }
