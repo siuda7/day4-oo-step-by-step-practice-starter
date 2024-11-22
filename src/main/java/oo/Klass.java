@@ -2,6 +2,7 @@ package oo;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Klass {
 
@@ -28,10 +29,10 @@ public class Klass {
     public void assignLeader(Student student) {
         if (student.getKlass() != null && student.getKlass().equals(this)) {
             this.leader = student;
-            this.members.stream()
-                   .forEach(member -> {
-                       if (isLeader(member)) member.sayWhenLeaderAssigned(this.number, student.getName());
-                     });
+            String asssignLeaderMsg = this.members.stream()
+                   .map(member -> member.sayWhenLeaderAssigned(this.number, student.getName()))
+                   .collect(Collectors.joining(" "));
+            System.out.print(asssignLeaderMsg);
         } else {
             System.out.print(NOT_IN_KLASS_ERROR);
         }
@@ -51,7 +52,8 @@ public class Klass {
 
     public void allMemberIntroduce() {
         members.stream()
-                .forEach(member -> System.out.print(member.introduce()));
+                .map(Person::introduce)
+                .collect(Collectors.joining(" "));
     }
 
     @Override

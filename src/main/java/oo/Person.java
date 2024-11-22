@@ -25,8 +25,16 @@ public class Person {
         this.age = age;
     }
 
+    private String getJob() {
+        if (this.job == null) {
+            return "";
+        } else {
+            return String.format(" I am a %s.", job);
+        }
+    }
+
     public String introduce() {
-        return String.format("My name is %s. I am %d years old. I am a %s.", name, age, job);
+        return String.format("My name is %s. I am %d years old." + getJob(), name, age, job);
     }
 
     @Override
@@ -38,7 +46,7 @@ public class Person {
         return name;
     }
 
-    public void sayWhenLeaderAssigned(Integer classNumber, String leaderName) {};
+    public String sayWhenLeaderAssigned(Integer classNumber, String leaderName) { return "";}
 
     @Override
     public boolean equals(Object anotherPerson) {

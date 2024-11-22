@@ -26,15 +26,18 @@ public class Student extends Person{
     }
 
     private String getClassStatusMsg() {
-        if (klass.isLeader(this)) {
-            return String.format("I am the leader of class %s.", klass.getNumber());
+        if (klass == null) {
+            return "";
         }
-        return String.format("I am in class %s.", klass.getNumber());
+        if (klass.isLeader(this)) {
+            return String.format(" I am the leader of class %s.", klass.getNumber());
+        }
+        return String.format(" I am in class %s.", klass.getNumber());
     }
 
     @Override
     public String introduce() {
-        return String.format("My name is %s. I am %d years old. I am a %s. %s", name, age, job, getClassStatusMsg());
+        return super.introduce() + getClassStatusMsg();
     }
 
     public Klass getKlass() {
@@ -42,8 +45,7 @@ public class Student extends Person{
     }
 
     @Override
-    public void sayWhenLeaderAssigned(Integer classNumber, String leaderName) {
-        String leaderMsg =  String.format("I am %s, student of Class %d. I know %s become Leader.", name, classNumber, leaderName);
-        System.out.print(leaderMsg);
+    public String sayWhenLeaderAssigned(Integer classNumber, String leaderName) {
+        return String.format("I am %s, student of Class %d. I know %s become Leader.", name, classNumber, leaderName);
     }
 }

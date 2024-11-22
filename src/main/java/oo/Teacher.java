@@ -29,9 +29,14 @@ public class Teacher extends Person{
                 .collect(Collectors.joining(", "));
     }
 
+    private String getTeachKlass() {
+        if (klasses.isEmpty()) return "";
+        return String.format(" I teach Class %s.", getKlasses());
+    }
+
     @Override
     public String introduce() {
-        return String.format("My name is %s. I am %d years old. I am a teacher. I teach Class %s.",name, age, getKlasses());
+        return super.introduce() + getTeachKlass();
     }
 
     public boolean isTeaching(Student student) {
@@ -39,8 +44,7 @@ public class Teacher extends Person{
     }
 
     @Override
-    public void sayWhenLeaderAssigned(Integer classNumber, String leaderName) {
-        String leaderMsg =  String.format("I am %s, teacher of Class %d. I know %s become Leader.", name, classNumber, leaderName);
-        System.out.println(leaderMsg);
+    public String sayWhenLeaderAssigned(Integer classNumber, String leaderName) {
+        return String.format("I am %s, teacher of Class %d. I know %s become Leader.", name, classNumber, leaderName);
     }
 }
